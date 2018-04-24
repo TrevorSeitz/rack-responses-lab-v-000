@@ -3,8 +3,9 @@ class Application
 
   def call(env)
     resp = Rack::Response.new
-    binding.pry
-    resp.write "Hello, World"
+    if Time.now.hour > 12
+      resp.write "Hello, World"
+    end
     resp.finish
   end
 
